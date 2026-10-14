@@ -1,0 +1,13 @@
+workflows:
+  android-workflow:
+    name: Build MognyGRAM APK
+    instance_type: mac_mini_m2
+    environment:
+      java: 17
+    scripts:
+      - name: Build APK
+        script: |
+          chmod +x gradlew
+          ./gradlew assembleAfatDebug
+    artifacts:
+      - TMessagesProj/build/outputs/apk/afat/debug/*.apk
